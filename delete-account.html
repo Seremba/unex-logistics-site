@@ -1,137 +1,431 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UNEx Logistics — Account Deletion</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account — UNEx Logistics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --navy: #0D1B2A;
+            --navy-mid: #162032;
+            --gold: #F5A623;
+            --orange: #FF6B00;
+            --cyan: #00B4D8;
+            --red: #E63946;
+            --white: #ffffff;
+            --muted: rgba(255,255,255,0.55);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
         body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f7fb;
-            color: #1f2937;
-            line-height: 1.6;
+            font-family: 'Barlow', sans-serif;
+            background: var(--navy);
+            color: var(--white);
+            line-height: 1.7;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 40px auto;
-            background: #ffffff;
-            padding: 32px;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 48px;
+            background: rgba(13,27,42,0.95);
+            border-bottom: 1px solid rgba(245,166,35,0.12);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        h1,
-        h2 {
-            color: #0f172a;
-        }
-
-        h1 {
-            margin-top: 0;
-            font-size: 2rem;
-        }
-
-        h2 {
-            margin-top: 28px;
-            font-size: 1.2rem;
-        }
-
-        p,
-        li {
-            font-size: 1rem;
-        }
-
-        ul,
-        ol {
-            padding-left: 22px;
-        }
-
-        .highlight {
-            background: #eef4ff;
-            border-left: 4px solid #2563eb;
-            padding: 14px 16px;
-            border-radius: 8px;
-            margin: 18px 0;
-        }
-
-        .contact {
-            background: #f8fafc;
-            padding: 16px;
-            border-radius: 8px;
-            border: 1px solid #e5e7eb;
-        }
-
-        a {
-            color: #2563eb;
+        .nav-logo {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900;
+            font-size: 1.4rem;
+            background: linear-gradient(90deg, var(--orange), var(--gold), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             text-decoration: none;
         }
 
-        a:hover {
-            text-decoration: underline;
+        .nav-back {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .nav-back:hover { color: var(--gold); }
+
+        .hero-strip {
+            background: var(--navy-mid);
+            border-bottom: 1px solid rgba(230,57,70,0.2);
+            padding: 64px 48px 48px;
+        }
+
+        .hero-strip .label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 12px;
+        }
+
+        .hero-strip h1 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900;
+            font-size: 3rem;
+            margin-bottom: 12px;
+        }
+
+        .hero-strip .meta {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .content-wrap {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 64px 48px;
+        }
+
+        .warning-box {
+            background: rgba(230,57,70,0.08);
+            border: 1px solid rgba(230,57,70,0.25);
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin-bottom: 48px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .warning-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+
+        .warning-box p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.95rem;
+            font-weight: 300;
+            margin: 0;
+        }
+
+        .section {
+            margin-bottom: 48px;
+        }
+
+        .section h2 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(245,166,35,0.12);
+        }
+
+        .section p {
+            color: rgba(255,255,255,0.75);
+            font-size: 0.95rem;
+            margin-bottom: 14px;
+            font-weight: 300;
+        }
+
+        .steps-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 14px;
+        }
+
+        .steps-list li {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .step-badge {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(245,166,35,0.15);
+            border: 1px solid rgba(245,166,35,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--gold);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .step-text {
+            color: rgba(255,255,255,0.75);
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .contact-method {
+            background: var(--navy-mid);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 12px;
+            padding: 20px 22px;
+            transition: border-color 0.2s;
+        }
+
+        .contact-method:hover { border-color: rgba(245,166,35,0.3); }
+
+        .contact-method-icon {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-method-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 6px;
+        }
+
+        .contact-method a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            word-break: break-all;
+            transition: color 0.2s;
+        }
+
+        .contact-method a:hover { color: var(--gold); }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+
+        .data-table th {
+            text-align: left;
+            padding: 12px 16px;
+            background: var(--navy-mid);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--gold);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .data-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+
+        .data-table tr:last-child td { border-bottom: none; }
+
+        .badge-deleted {
+            background: rgba(16,185,129,0.15);
+            color: #10b981;
+            border-radius: 4px;
+            padding: 2px 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .badge-retained {
+            background: rgba(245,166,35,0.15);
+            color: var(--gold);
+            border-radius: 4px;
+            padding: 2px 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
         }
 
         footer {
-            margin-top: 32px;
-            font-size: 0.9rem;
-            color: #6b7280;
+            background: var(--navy-mid);
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 32px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-logo {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900;
+            font-size: 1.2rem;
+            background: linear-gradient(90deg, var(--orange), var(--gold), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--gold); }
+
+        .footer-copy {
+            color: rgba(255,255,255,0.25);
+            font-size: 0.82rem;
+        }
+
+        @media (max-width: 768px) {
+            nav, .hero-strip, .content-wrap, footer { padding-left: 24px; padding-right: 24px; }
+            .hero-strip h1 { font-size: 2rem; }
+            .contact-methods { grid-template-columns: 1fr; }
         }
     </style>
 </head>
-
 <body>
-    <div class="container">
-        <h1>UNEx Logistics — Account Deletion</h1>
 
-        <p>
-            This page explains how users of <strong>UNEx Logistics</strong> can request deletion
-            of their account and associated personal data.
-        </p>
+<nav>
+    <a href="index.html" class="nav-logo">UNEx LOGISTICS</a>
+    <a href="index.html" class="nav-back">← Back to Home</a>
+</nav>
 
-        <div class="highlight">
-            To request account deletion, please contact our support team using the registered
-            phone number connected to your account.
-        </div>
+<div class="hero-strip">
+    <div class="label">Account Management</div>
+    <h1>Delete Your Account</h1>
+    <p class="meta">Request deletion of your UNEx Logistics account and associated data</p>
+</div>
 
-        <h2>How to request account deletion</h2>
-        <ol>
-            <li>Send an account deletion request to our support team.</li>
-            <li>Include your registered phone number and account name if available.</li>
-            <li>Our team may verify ownership of the account before processing the request.</li>
-            <li>Approved deletion requests are processed within a reasonable period.</li>
-        </ol>
+<div class="content-wrap">
 
-        <div class="contact">
-            <p><strong>Support Email:</strong> <a href="mailto:unexlogistics79@gmail.com">unexlogistics79@gmail.com</a>
-            </p>
-            <p><strong>Support Phone:</strong> <a href="tel:+256780445860">+256 780 445860/ +256 766 799490</a></p>
-        </div>
+    <div class="warning-box">
+        <div class="warning-icon">⚠️</div>
+        <p>Account deletion is permanent and cannot be undone. Once your account is deleted, you will lose access to your cargo tracking history, registered properties, and all account data. Please make sure you want to proceed before submitting a request.</p>
+    </div>
 
-        <h2>What data will be deleted</h2>
-        <ul>
-            <li>Account profile information associated with the user</li>
-            <li>Stored contact details linked to the account</li>
-            <li>Other personal account data that is no longer required for operations</li>
+    <div class="section">
+        <h2>How to Request Account Deletion</h2>
+        <p>To request deletion of your UNEx Logistics account, contact our support team using any of the methods below. Include your registered phone number so we can identify your account.</p>
+
+        <ul class="steps-list">
+            <li>
+                <div class="step-badge">1</div>
+                <div class="step-text">Contact our support team via email or phone using the details below.</div>
+            </li>
+            <li>
+                <div class="step-badge">2</div>
+                <div class="step-text">Include your <strong>registered phone number</strong> and full name in your request.</div>
+            </li>
+            <li>
+                <div class="step-badge">3</div>
+                <div class="step-text">Our team will verify ownership of the account before processing the deletion.</div>
+            </li>
+            <li>
+                <div class="step-badge">4</div>
+                <div class="step-text">Your account will be deleted within a reasonable period after verification. We will confirm via SMS or email when the deletion is complete.</div>
+            </li>
         </ul>
 
-        <h2>What data may be retained</h2>
-        <p>
-            Certain records may be retained for a limited period where required for legal,
-            security, fraud prevention, dispute resolution, financial accountability, or
-            audit purposes.
-        </p>
-
-        <h2>Questions</h2>
-        <p>
-            If you have any questions about account deletion or data handling in
-            UNEx Logistics, please contact support using the details above.
-        </p>
-
-        <footer>
-            © 2026 UNEx Logistics. All rights reserved.
-        </footer>
+        <div class="contact-methods">
+            <div class="contact-method">
+                <div class="contact-method-icon">✉️</div>
+                <div class="contact-method-label">Email</div>
+                <a href="mailto:unexlogisticsug@gmail.com">unexlogisticsug@gmail.com</a>
+            </div>
+            <div class="contact-method">
+                <div class="contact-method-icon">📞</div>
+                <div class="contact-method-label">Phone / WhatsApp</div>
+                <a href="tel:+256766799490">+256 766 799 490</a><br>
+                <a href="tel:+256780445860">+256 780 445 860</a>
+            </div>
+        </div>
     </div>
-</body>
 
+    <div class="section">
+        <h2>What Data Will Be Deleted</h2>
+        <p>The following data will be permanently deleted when your account deletion request is processed:</p>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Data Type</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Account profile (name, phone number)</td>
+                    <td><span class="badge-deleted">Deleted</span></td>
+                </tr>
+                <tr>
+                    <td>Password hash and authentication data</td>
+                    <td><span class="badge-deleted">Deleted</span></td>
+                </tr>
+                <tr>
+                    <td>Pending OTPs and verification codes</td>
+                    <td><span class="badge-deleted">Deleted</span></td>
+                </tr>
+                <tr>
+                    <td>Session and device data</td>
+                    <td><span class="badge-deleted">Deleted</span></td>
+                </tr>
+                <tr>
+                    <td>Cargo and shipment records</td>
+                    <td><span class="badge-retained">May be retained*</span></td>
+                </tr>
+                <tr>
+                    <td>Payment records</td>
+                    <td><span class="badge-retained">May be retained*</span></td>
+                </tr>
+                <tr>
+                    <td>Audit logs</td>
+                    <td><span class="badge-retained">May be retained*</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p style="margin-top: 16px; font-size: 0.85rem;">* Certain records may be retained where required for legal, financial accountability, dispute resolution, fraud prevention, or regulatory compliance purposes. Retained records will be anonymized where possible.</p>
+    </div>
+
+    <div class="section">
+        <h2>Partial Data Deletion</h2>
+        <p>If you wish to delete specific data without deleting your full account — for example, removing a registered property or updating your contact details — please contact our support team with the specific request. We will assist you in managing your data appropriately.</p>
+    </div>
+
+    <div class="section">
+        <h2>Questions</h2>
+        <p>If you have any questions about account deletion, data handling, or your privacy rights under UNEx Logistics, please review our <a href="privacy-policy.html" style="color: var(--gold);">Privacy Policy</a> or contact our support team directly.</p>
+    </div>
+
+</div>
+
+<footer>
+    <div class="footer-logo">UNEx LOGISTICS</div>
+    <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="delete-account.html">Delete Account</a>
+    </div>
+    <div class="footer-copy">© 2026 UNEx Logistics. All rights reserved.</div>
+</footer>
+
+</body>
 </html>

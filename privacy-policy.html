@@ -1,98 +1,412 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UNEx Logistics — Privacy Policy</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — UNEx Logistics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --navy: #0D1B2A;
+            --navy-mid: #162032;
+            --gold: #F5A623;
+            --orange: #FF6B00;
+            --cyan: #00B4D8;
+            --white: #ffffff;
+            --muted: rgba(255,255,255,0.55);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
         body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f7fb;
-            color: #1f2937;
-            line-height: 1.6;
+            font-family: 'Barlow', sans-serif;
+            background: var(--navy);
+            color: var(--white);
+            line-height: 1.7;
         }
 
-        .container {
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 48px;
+            background: rgba(13,27,42,0.95);
+            border-bottom: 1px solid rgba(245,166,35,0.12);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-logo {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900;
+            font-size: 1.4rem;
+            background: linear-gradient(90deg, var(--orange), var(--gold), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-back {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .nav-back:hover { color: var(--gold); }
+
+        .hero-strip {
+            background: var(--navy-mid);
+            border-bottom: 1px solid rgba(245,166,35,0.12);
+            padding: 64px 48px 48px;
+        }
+
+        .hero-strip .label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .hero-strip h1 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900;
+            font-size: 3rem;
+            margin-bottom: 12px;
+        }
+
+        .hero-strip .meta {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .content-wrap {
             max-width: 800px;
-            margin: 40px auto;
-            background: #ffffff;
-            padding: 32px;
+            margin: 0 auto;
+            padding: 64px 48px;
+        }
+
+        .toc {
+            background: var(--navy-mid);
+            border: 1px solid rgba(245,166,35,0.15);
             border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            padding: 28px 32px;
+            margin-bottom: 48px;
         }
 
-        h1,
-        h2 {
-            color: #0f172a;
+        .toc-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--gold);
+            margin-bottom: 16px;
         }
 
-        h1 {
-            margin-top: 0;
-        }
-
-        h2 {
-            margin-top: 28px;
-        }
-
-        ul {
+        .toc ol {
             padding-left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .toc a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .toc a:hover { color: var(--gold); }
+
+        .policy-section {
+            margin-bottom: 48px;
+            scroll-margin-top: 80px;
+        }
+
+        .policy-section h2 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: 1.6rem;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(245,166,35,0.15);
+            color: var(--white);
+        }
+
+        .policy-section h3 {
+            font-weight: 600;
+            font-size: 1rem;
+            margin: 24px 0 10px;
+            color: var(--gold);
+        }
+
+        .policy-section p {
+            color: rgba(255,255,255,0.75);
+            font-size: 0.95rem;
+            margin-bottom: 14px;
+            font-weight: 300;
+        }
+
+        .policy-section ul, .policy-section ol {
+            padding-left: 22px;
+            margin-bottom: 14px;
+        }
+
+        .policy-section li {
+            color: rgba(255,255,255,0.75);
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            font-weight: 300;
+        }
+
+        .highlight-box {
+            background: rgba(245,166,35,0.08);
+            border-left: 3px solid var(--gold);
+            border-radius: 0 8px 8px 0;
+            padding: 16px 20px;
+            margin: 20px 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            color: rgba(255,255,255,0.85) !important;
+        }
+
+        .contact-box {
+            background: var(--navy-mid);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin-top: 16px;
+        }
+
+        .contact-box p {
+            margin: 0;
+            font-size: 0.9rem !important;
+        }
+
+        .contact-box a {
+            color: var(--gold);
+            text-decoration: none;
         }
 
         footer {
-            margin-top: 32px;
-            font-size: 0.9rem;
-            color: #6b7280;
+            background: var(--navy-mid);
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 32px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-logo {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900;
+            font-size: 1.2rem;
+            background: linear-gradient(90deg, var(--orange), var(--gold), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--gold); }
+
+        .footer-copy {
+            color: rgba(255,255,255,0.25);
+            font-size: 0.82rem;
+        }
+
+        @media (max-width: 768px) {
+            nav, .hero-strip, .content-wrap, footer { padding-left: 24px; padding-right: 24px; }
+            .hero-strip h1 { font-size: 2rem; }
         }
     </style>
 </head>
-
 <body>
-    <div class="container">
-        <h1>UNEx Logistics — Privacy Policy</h1>
 
-        <p>This Privacy Policy explains how UNEx Logistics collects, uses, and protects your information when you use
-            our application.</p>
+<nav>
+    <a href="index.html" class="nav-logo">UNEx LOGISTICS</a>
+    <a href="index.html" class="nav-back">← Back to Home</a>
+</nav>
 
-        <h2>Information We Collect</h2>
-        <ul>
-            <li>Name and phone number</li>
-            <li>Account information</li>
-            <li>Cargo and delivery details</li>
-            <li>Transaction and payment information</li>
-            <li>Device and usage information (if applicable)</li>
-        </ul>
+<div class="hero-strip">
+    <div class="label">Legal</div>
+    <h1>Privacy Policy</h1>
+    <p class="meta">Last updated: March 2026 &nbsp;·&nbsp; Effective: March 2026</p>
+</div>
 
-        <h2>How We Use Information</h2>
-        <ul>
-            <li>To provide cargo tracking and logistics services</li>
-            <li>To process transactions</li>
-            <li>To communicate with users (notifications, updates)</li>
-            <li>To improve app performance and security</li>
-        </ul>
+<div class="content-wrap">
 
-        <h2>Data Sharing</h2>
-        <p>We do not sell user data. Information may be shared only as necessary to provide services or comply with
-            legal obligations.</p>
-
-        <h2>Data Security</h2>
-        <p>We use secure technologies, including encrypted connections (HTTPS), to protect user data.</p>
-
-        <h2>Data Retention</h2>
-        <p>We retain user data only as long as necessary for operational, legal, and auditing purposes.</p>
-
-        <h2>User Rights</h2>
-        <p>Users may request account deletion by visiting our account deletion page or contacting support.</p>
-
-        <h2>Contact</h2>
-        <p>Email: unexlogistics79@gmail.com</p>
-        <p>Phone: +256 780 445860/ +256 766 799490</p>
-
-        <footer>
-            © 2026 UNEx Logistics
-        </footer>
+    <div class="toc">
+        <div class="toc-title">Table of Contents</div>
+        <ol>
+            <li><a href="#s1">Information We Collect</a></li>
+            <li><a href="#s2">How We Use Your Information</a></li>
+            <li><a href="#s3">Information Sharing</a></li>
+            <li><a href="#s4">Location Data</a></li>
+            <li><a href="#s5">Data Storage & Security</a></li>
+            <li><a href="#s6">Data Retention</a></li>
+            <li><a href="#s7">Your Rights</a></li>
+            <li><a href="#s8">Third-Party Services</a></li>
+            <li><a href="#s9">Children's Privacy</a></li>
+            <li><a href="#s10">Changes to This Policy</a></li>
+            <li><a href="#s11">Contact Us</a></li>
+        </ol>
     </div>
-</body>
 
+    <div class="highlight-box">
+        <p>This Privacy Policy describes how UNEx Logistics ("we", "us", or "our") collects, uses, and protects your personal information when you use the UNEx Logistics mobile application ("the App"). By using the App, you agree to the collection and use of information as described in this policy.</p>
+    </div>
+
+    <div class="policy-section" id="s1">
+        <h2>1. Information We Collect</h2>
+        <h3>Information You Provide</h3>
+        <ul>
+            <li><strong>Full name</strong> — collected at registration</li>
+            <li><strong>Phone number</strong> — used as your account identifier and for SMS notifications</li>
+            <li><strong>Password</strong> — stored as a salted cryptographic hash, never in plain text</li>
+            <li><strong>Receiver details</strong> — name and phone number of cargo recipients you register</li>
+            <li><strong>Cargo information</strong> — item descriptions, quantities, destinations</li>
+        </ul>
+        <h3>Information Collected Automatically</h3>
+        <ul>
+            <li><strong>GPS location</strong> — collected from driver devices during active trips to track cargo checkpoints. Location is only collected when a trip is active.</li>
+            <li><strong>Device identifiers</strong> — used internally for session management</li>
+            <li><strong>App usage data</strong> — actions logged locally for audit and dispute resolution</li>
+        </ul>
+    </div>
+
+    <div class="policy-section" id="s2">
+        <h2>2. How We Use Your Information</h2>
+        <p>We use the information we collect to:</p>
+        <ul>
+            <li>Create and manage your account</li>
+            <li>Process and track cargo shipments</li>
+            <li>Send SMS notifications about your cargo status (loaded, in transit, delivered, ready for pickup)</li>
+            <li>Send one-time passwords (OTPs) for account verification and secure cargo pickup</li>
+            <li>Enable GPS checkpoint tracking during bus trips</li>
+            <li>Provide customer support</li>
+            <li>Prevent fraud and unauthorized cargo pickup</li>
+            <li>Maintain audit records for dispute resolution</li>
+        </ul>
+    </div>
+
+    <div class="policy-section" id="s3">
+        <h2>3. Information Sharing</h2>
+        <p>We do not sell your personal information. We may share your information with:</p>
+        <h3>Africa's Talking</h3>
+        <p>We use Africa's Talking to send SMS notifications. Your phone number is shared with this service solely for the purpose of delivering SMS messages. Africa's Talking is bound by their own privacy policy.</p>
+        <h3>Our Servers</h3>
+        <p>Cargo and trip data is synced to our secure cloud infrastructure (Cloudflare and Supabase) to enable multi-device access and operational continuity. All data is encrypted in transit.</p>
+        <h3>Legal Requirements</h3>
+        <p>We may disclose your information where required by law or to protect the rights, property, or safety of UNEx Logistics, our users, or others.</p>
+    </div>
+
+    <div class="policy-section" id="s4">
+        <h2>4. Location Data</h2>
+        <p>Location data is collected <strong>only from driver accounts</strong> and only during active trips. Location is used to:</p>
+        <ul>
+            <li>Record GPS checkpoints along bus routes</li>
+            <li>Provide cargo tracking visibility to senders and administrators</li>
+            <li>Generate trip records for operational purposes</li>
+        </ul>
+        <p>Sender, receiver, desk officer, and station staff accounts do not have location tracked. Drivers can view their assigned GPS status in the app at all times.</p>
+    </div>
+
+    <div class="policy-section" id="s5">
+        <h2>5. Data Storage & Security</h2>
+        <p>UNEx Logistics is an offline-first application. Data is stored locally on your device using encrypted storage. When network connectivity is available, data syncs to our secure cloud infrastructure.</p>
+        <ul>
+            <li>Passwords are stored as salted SHA-256 hashes — never in plain text</li>
+            <li>OTPs are stored as hashed values and expire after 10–12 hours</li>
+            <li>All data transmission uses HTTPS encryption</li>
+            <li>API access is protected by secure key authentication</li>
+        </ul>
+        <p>While we take reasonable measures to protect your data, no method of transmission or storage is 100% secure. We encourage you to use a strong password and keep your phone secure.</p>
+    </div>
+
+    <div class="policy-section" id="s6">
+        <h2>6. Data Retention</h2>
+        <p>We retain your personal data for as long as your account is active or as needed to provide services. Specifically:</p>
+        <ul>
+            <li>Account data is retained until you request deletion</li>
+            <li>Cargo and trip records may be retained for legal, financial, and audit purposes even after account deletion</li>
+            <li>OTP records are automatically deleted after use or expiry</li>
+            <li>Audit logs are retained for dispute resolution purposes</li>
+        </ul>
+    </div>
+
+    <div class="policy-section" id="s7">
+        <h2>7. Your Rights</h2>
+        <p>You have the right to:</p>
+        <ul>
+            <li><strong>Access</strong> — request a copy of the personal data we hold about you</li>
+            <li><strong>Correction</strong> — request correction of inaccurate information</li>
+            <li><strong>Deletion</strong> — request deletion of your account and associated personal data</li>
+            <li><strong>Objection</strong> — object to processing of your personal data in certain circumstances</li>
+        </ul>
+        <p>To exercise any of these rights, contact us using the details in Section 11. Account deletion requests are processed within a reasonable period, subject to retention requirements outlined in Section 6.</p>
+        <p>You can also request account deletion directly at: <a href="delete-account.html" style="color: var(--gold);">unexlogisticsug.netlify.app/delete-account</a></p>
+    </div>
+
+    <div class="policy-section" id="s8">
+        <h2>8. Third-Party Services</h2>
+        <p>The App uses the following third-party services:</p>
+        <ul>
+            <li><strong>Africa's Talking</strong> — SMS delivery service</li>
+            <li><strong>Cloudflare Workers</strong> — backend sync infrastructure</li>
+            <li><strong>Supabase</strong> — data storage and event sourcing</li>
+        </ul>
+        <p>Each of these services has its own privacy policy governing the data they process. We are not responsible for the privacy practices of third-party services.</p>
+    </div>
+
+    <div class="policy-section" id="s9">
+        <h2>9. Children's Privacy</h2>
+        <p>UNEx Logistics is intended for users aged 18 and over. We do not knowingly collect personal information from children under 18. If you believe a child has provided us with personal information, please contact us immediately and we will take steps to remove such information.</p>
+    </div>
+
+    <div class="policy-section" id="s10">
+        <h2>10. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. We will notify users of significant changes through the App or via SMS. Your continued use of the App after changes are posted constitutes your acceptance of the updated policy. We encourage you to review this policy periodically.</p>
+    </div>
+
+    <div class="policy-section" id="s11">
+        <h2>11. Contact Us</h2>
+        <p>If you have questions about this Privacy Policy or how we handle your data, please contact us:</p>
+        <div class="contact-box">
+            <p><strong>UNEx Logistics</strong><br>
+            Kampala, Uganda<br><br>
+            📧 <a href="mailto:unexlogisticsug@gmail.com">unexlogisticsug@gmail.com</a><br>
+            📞 <a href="tel:+256766799490">+256 766 799 490</a><br>
+            📞 <a href="tel:+256780445860">+256 780 445 860</a></p>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <div class="footer-logo">UNEx LOGISTICS</div>
+    <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="delete-account.html">Delete Account</a>
+    </div>
+    <div class="footer-copy">© 2026 UNEx Logistics. All rights reserved.</div>
+</footer>
+
+</body>
 </html>
